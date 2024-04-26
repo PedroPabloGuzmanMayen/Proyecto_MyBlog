@@ -4,7 +4,7 @@ import './LoginButton.css'
 
 const Button = ({ onClick, text }) => {
     return (
-        <button onClick={onClick} classname = 'LoginButton'>{text}</button>
+        <button onClick={onClick} className = 'LoginButton'>{text}</button>
     )
 }
 
