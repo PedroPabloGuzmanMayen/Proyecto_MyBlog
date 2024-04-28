@@ -45,7 +45,7 @@ export async function modifyPostByID(id, title, content, image) {
     }
     // Modificar todo el post
 
-    const [res] = await conn.query('UPDATE posts SET title = $1, content = $2, banner = $3 WHERE id = $4', [title, content, image, id])
+    const res = await conn.query('UPDATE posts SET title = $1, content = $2, banner = $3 WHERE id = $4', [title, content, image, id])
     return res
   } catch (error) {
     console.error('Error modificando post post:', error)
