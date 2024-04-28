@@ -1,20 +1,24 @@
 {
-  "type": "module",
   "name": "starwarsapi",
   "version": "1.0.0",
-  "description": "API for a blog focused on Star Wars",
+  "description": "Api for star wars blog",
   "main": "main.js",
   "scripts": {
-    "start": "node src/main.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/PedroPabloGuzmanMayen/Proyecto_MyBlog.git"
   },
-  "author": "PPGM",
+  "author": "ppguz",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/PedroPabloGuzmanMayen/Proyecto_MyBlog/issues"
   },
-  "homepage": "https://github.com/PedroPabloGuzmanMayen/Proyecto_MyBlog#readme"
+  "homepage": "https://github.com/PedroPabloGuzmanMayen/Proyecto_MyBlog#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "pg": "^8.11.5"
+  }
 }
