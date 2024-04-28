@@ -18,6 +18,7 @@ const logger = (req, res, next) => {
 app.use(logger)
 
 //Soporte para cors (10 puntos)
+app.use(cors())
 
 app.use(express.json())
 
