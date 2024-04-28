@@ -11,9 +11,10 @@ const app = express()
 const port = 22111
 // Con esta función se guardan todas las request y response en un archivo txt (20 puntos)
 const logger = (req, res, next) => {
-  fs.appendFileSync('log.txt', `Request: ${req.method} ${req.url} Response: ${res} at ${new Date().toISOString()}\n`)
-  next()
+    fs.appendFileSync('log.txt', `Request: ${req.method} ${req.url} Response status: ${res.statusCode} Response headers: ${JSON.stringify(res.getHeaders())} at ${new Date().toISOString()}\n`)
+    next()
 }
+  
 app.use(logger)
 
 //Soporte para cors (10 puntos)

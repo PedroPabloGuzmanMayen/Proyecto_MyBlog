@@ -6,7 +6,6 @@ export async function getPosts() {
     const [rows] = await conn.query('SELECT * FROM posts')
     return rows
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.error('Error obtienedo posts:', error)
     throw error
   }
@@ -49,7 +48,6 @@ export async function modifyPostByID(id, title, content, image) {
     const [res] = await conn.query('UPDATE posts SET title = ?, content = ?, banner = ? WHERE id = ?', [title, content, image, id])
     return res
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.error('Error modificando post post:', error)
     throw error
   }
@@ -60,7 +58,6 @@ export async function newPost(title, content, image, author) {
     const [rows] = await conn.query('INSERT INTO posts (title, content, banner, author) VALUES (?, ?, ?, ?)', [title, content, image, author])
     return rows
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.error('Error creando post:', error)
     throw error
   }
@@ -72,7 +69,6 @@ export async function getPostbyID(id) {
     const [result] = await conn.query('SELECT * FROM posts WHERE id = ?', [id])
     return result
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.error('Error obteniendo post:', error)
     throw error
   }
@@ -83,7 +79,6 @@ export async function deletePost(id) {
     const [res] = await conn.query('DELETE FROM posts WHERE id = ?', [id])
     return res
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.error('Error eliminando post:', error)
     throw error
   }
