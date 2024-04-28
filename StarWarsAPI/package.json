@@ -1,0 +1,20 @@
+{
+  "type": "module",
+  "name": "starwarsapi",
+  "version": "1.0.0",
+  "description": "API for a blog focused on Star Wars",
+  "main": "main.js",
+  "scripts": {
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PedroPabloGuzmanMayen/Proyecto_MyBlog.git"
+  },
+  "author": "PPGM",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PedroPabloGuzmanMayen/Proyecto_MyBlog/issues"
+  },
+  "homepage": "https://github.com/PedroPabloGuzmanMayen/Proyecto_MyBlog#readme"
+}
