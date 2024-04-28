@@ -66,7 +66,7 @@ export async function newPost(title, content, image, author) {
 // Con esta función se obtiene un post dado su ID
 export async function getPostbyID(id) {
   try {
-    const result = await conn.query('SELECT * FROM posts WHERE id = ?', [id])
+    const result = await conn.query('SELECT * FROM posts WHERE id = $1', [parseInt(id)])
     return result.rows
   } catch (error) {
     console.error('Error obteniendo post:', error)
