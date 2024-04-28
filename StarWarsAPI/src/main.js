@@ -27,6 +27,8 @@ app.get('/', (req, res) => {
 })
 app.get('/Posts', async (req, res) => {
   try {
+    const post = await getPosts()
+    console.log(post)
     res.status(200).json(await getPosts())
   } catch (e) {
     res.status(500).send('Ha ocurrido un error, el lado oscuro ha triunfado :( (*suena la marcha imperial*)')
