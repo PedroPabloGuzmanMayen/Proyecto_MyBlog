@@ -3,7 +3,7 @@ import conn from './conn.js'
 // Con esta función se obtienen todos los posts de la base de datos
 export async function getPosts() {
   try {
-    const [rows] = await conn.query('SELECT * FROM posts')
+    const rows = await conn.query('SELECT * FROM posts')
     return rows
   } catch (error) {
     console.error('Error obtienedo posts:', error)
