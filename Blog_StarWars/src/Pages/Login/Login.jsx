@@ -20,8 +20,12 @@ const Login = () => {
         <aside className = 'Login-container'>
             <h1 className = 'title'>Login</h1>
             <Input
-                text = 'Email'
-                placeholder = 'someone@example.com'/>
+                text = 'Username'
+                placeholder = 'Your username'/>
+            <Input />
+            <Button
+                text = 'Login'
+                onClick = {submit}/>
         </aside>
     )
 }
