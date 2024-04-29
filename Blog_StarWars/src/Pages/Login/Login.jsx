@@ -5,18 +5,20 @@ import Input from '../../Components/Input/Input'
 import './Login.css'
 import { object, string } from 'yup'
 import useForm from '../../Hooks/useForm'
+import useAPI from '../../Hooks/useAPI'
 
 const schema = object({
     username: string().required(),
     password: string().required()
 })
 
-const submit = () =>{
-    console.log('submitted')
-    console.log(values.password)
-}
 const Login = () => {
     const {values, setValue, validate, errors} = useForm(schema)
+    const {verifyUser} = useAPI()
+    const submit = async () => {
+        const data = await verifyUser(values.username, values.password)
+        console.log(data)
+    }
     return (
         <aside className = 'Login-container'>
             <h1 className = 'title'>Login</h1>
@@ -36,7 +38,7 @@ const Login = () => {
              />
             <Button
                 text = 'Login'
-                onClick = {() => {console.log(values)}}/>
+                onClick = {submit}/>
         </aside>
     )
 }

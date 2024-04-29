@@ -6,15 +6,24 @@ const useAPI = () =>{
     const [userPosts, setUserPosts] = useState([])
 
     const getUserPosts = async (userId) => {
-        const response = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
+        const response = await fetch(`https://api.web05.lol/Posts/${userId}`)
         const data = await response.json()
         setUserPosts(data)
     }
 
     const verifyUser = async (username, password) => {
-        const response = await fetch(`https://jsonplaceholder.typicode.com/users?username=${username}&password=${password}`)
+        const body = { "username": username, "password": password}
+        const response = await fetch(`http://api.tiburoncin.lat/login`, {
+            //mode: 'no-cors',
+            method: 'POST',
+            body: JSON.stringify(body),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        
+        })
         const data = await response.json()
-        return data.length > 0
+        return data
     }
 
     const addUser = async (username, password) => {
@@ -32,5 +41,9 @@ const useAPI = () =>{
         return data
     }
 
+    return { generalPosts, setGeneralPosts, userPosts, getUserPosts, verifyUser, addUser}
+
 
 }
+
+export default useAPI
