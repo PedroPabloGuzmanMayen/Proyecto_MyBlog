@@ -1,23 +1,21 @@
 import express from 'express'
 import fs from 'fs'
 import cors from 'cors'
-
-
+import {generateToken, validateToken} from './jwt.js'
 import {
-  getPosts, newPost, getPostbyID, modifyPostByID, deletePost,
-  // eslint-disable-next-line import/extensions
+  getPosts, newPost, getPostbyID, modifyPostByID, deletePost, login, register
 } from './db.js'
 
 const app = express()
 const port = 22111
-// Con esta función se guardan todas las request y response en un archivo txt (20 puntos)
+
 const logger = (req, res, next) => {
   fs.appendFileSync('log.txt', `Request: ${req.method} ${req.url} Response: ${res} at ${new Date().toISOString()}\n`)
   next()
 }
 app.use(logger)
 
-//Soporte para cors (10 puntos)
+
 app.use(cors())
 
 app.use(express.json())
@@ -70,7 +68,28 @@ app.delete('/deletePost/:id', async (req, res) => {
     res.status(500).send('Error :(')
   }
 })
-// Verificación si el endpoint is valido (15 puntos)
+
+app.post('/login', async (req, res) => {
+  const { username, password } = req.body
+  const user = await login(username, password)
+  if (user) {
+    const token = generateToken(user[0].username)
+    res.status(200).json({ 'success': true, access_token: token, user: username })
+  } else {
+    res.status(401).json({'success': false})
+  }
+})
+
+app.post('/register', async (req, res) => {
+  const { username, password } = req.body
+  const user = await register(username, password)
+  if (user) {
+    res.status(200).json({'success': true, user: username })
+  } else {
+    res.status(401).json({'success': false})
+  }
+})
+
 app.use((req, res) => {
   res.status(400).send('400 bad request')
 })

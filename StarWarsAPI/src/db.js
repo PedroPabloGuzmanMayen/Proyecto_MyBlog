@@ -83,3 +83,24 @@ export async function deletePost(id) {
     throw error
   }
 }
+
+//Esta función sirve para el login
+
+export async function login(username, password) {
+  const res = await conn.query('SELECT * FROM users WHERE username = $1 AND password = $2', [username, password])
+  if (res.rows.length === 1) {
+    return res.rows
+  }
+  else {
+    return false
+  }
+
+}
+
+//Esta función sirve para registrar nuevos usuarios en la app
+
+export async function register(username, password) {
+
+    const res = await conn.query('INSERT INTO users (username, password) VALUES ($1, $2)', [username, password])
+    return res.rows
+}
