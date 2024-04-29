@@ -16,7 +16,9 @@ const logger = (req, res, next) => {
 app.use(logger)
 
 
-app.use(cors())
+app.use(cors({
+  origin: '*', 
+}))
 
 app.use(express.json())
 
