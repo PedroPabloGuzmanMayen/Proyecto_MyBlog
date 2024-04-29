@@ -1,9 +1,10 @@
 import React from "react"
 import useNavigate from '../../Hooks/useNavigate'
 
-const {page, navigate} = useNavigate()
 
 const Nav = () => {
+    const {page, navigate} = useNavigate()
+
 
     return (
         <ul>
@@ -11,13 +12,13 @@ const Nav = () => {
                 <a href = '/' onClick = {() => {navigate('/')}}>Home</a>
             </li>
             <li>
-                <a href = '/new-post' onClick = {() => {navigate('/new-post')}}>New Post</a>
+                <a href = '#/new-post' onClick = {() => {navigate('/new-post')}}>New Post</a>
             </li>
             <li>
-                <a href = '/login' onClick = {() => {navigate('/login')}}>Login</a>
+                <a href = '#/login' onClick = {() => {navigate('/login')}}>Login</a>
             </li>
             <li>
-                <a href = '/register' onClick = {() => {navigate('/register')}}>Register</a>
+                <a href = '#/register' onClick = {() => {navigate('/register')}}>Register</a>
             </li>
 
         </ul>

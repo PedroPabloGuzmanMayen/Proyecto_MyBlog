@@ -4,7 +4,7 @@ import Login from './Pages/Login/Login'
 import {NavigationProvider} from './Hooks/useNavigate'
 import Navigation from './Pages/navigation'
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
     <NavigationProvider>
