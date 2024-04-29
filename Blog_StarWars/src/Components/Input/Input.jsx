@@ -2,11 +2,11 @@ import React from 'react'
 import Proptypes from 'prop-types'
 import './Input.css'
 
-const Input = ({ onChange, value, text, placeholder, type }) => {
+const Input = ({ value, onChange, text, type, placeholder }) => {
     return (
         <label className = 'Input-container'>
             <span className = 'text'>{text}</span>
-            <input onChange={onChange} className = 'Input' value={value} placeholder = {placeholder} type = {type} />
+            <input value={value} onChange = {onChange} type = {type} placeholder={placeholder} className = 'Input' />
         </label>
     )
 }

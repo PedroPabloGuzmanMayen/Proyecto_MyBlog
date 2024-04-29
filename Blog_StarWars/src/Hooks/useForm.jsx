@@ -1,13 +1,13 @@
 import { useState } from 'react'
-import { object } from 'yup'
+
 
 const useForm = (schema_, initialValues = {}) => {
-  const [schema, setSchema] = useState(schema_)
-  const [values, setValues] = useState(initialValues)
-  const [errors, setErrors] = useState({})
+  const [ schema] = useState(schema_)
+  const [ values, setValues ] = useState(initialValues)
+  const [ errors, setErrors ] = useState({})
 
   const setValue = (name, value) => {
-    setValues((old) => ({ ...old, [name]: value}))
+    setValues((old) => ({ ...old, [name]: value }))
   }
 
   const validate = async () => {
@@ -27,7 +27,7 @@ const useForm = (schema_, initialValues = {}) => {
     return false
   }
 
-  return {values, setValue, validate, errors} 
+  return { values, setValue, validate, errors } 
 }
 
 export default useForm
