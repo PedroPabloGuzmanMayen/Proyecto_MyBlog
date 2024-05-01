@@ -10,7 +10,12 @@ const app = express()
 const port = 22111
 
 const logger = (req, res, next) => {
-  fs.appendFileSync('log.txt', `Request: ${req.method} ${req.url} Response: ${res} at ${new Date().toISOString()}\n`)
+  const responseData = JSON.stringify({
+    statusCode: res.statusCode,
+    headers: res.getHeaders(),
+    // Add any other properties from res that you want to log
+  })
+  fs.appendFileSync('log.txt', `Request: ${req.method} ${req.url} Response: ${responseData} at ${new Date().toISOString()}\n`)
   next()
 }
 app.use(logger)
