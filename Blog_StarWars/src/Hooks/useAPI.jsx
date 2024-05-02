@@ -11,9 +11,15 @@ const useAPI = () =>{
         setUserPosts(data)
     }
 
+    const getGeneralPosts = async () => {
+        const response = await fetch('https://api.web05.lol/Posts')
+        const data = await response.json()
+        setGeneralPosts(data)
+    }
+
     const verifyUser = async (username, password) => {
         const body = { "username": username, "password": password}
-        const response = await fetch(`http://api.tiburoncin.lat/login`, {
+        const response = await fetch(`http://api.web05.lol/22111/login`, {
             //mode: 'no-cors',
             method: 'POST',
             body: JSON.stringify(body),
@@ -41,7 +47,7 @@ const useAPI = () =>{
         return data
     }
 
-    return { generalPosts, setGeneralPosts, userPosts, getUserPosts, verifyUser, addUser}
+    return { generalPosts, setGeneralPosts, userPosts, getUserPosts, verifyUser, addUser, getGeneralPosts}
 
 
 }

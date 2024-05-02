@@ -6,22 +6,31 @@ import './Login.css'
 import { object, string } from 'yup'
 import useForm from '../../Hooks/useForm'
 import useAPI from '../../Hooks/useAPI'
+import useToken from '../../Hooks/useToken'
+import useNavigate from '../../Hooks/useNavigate'
 
 const schema = object({
     username: string().required(),
     password: string().required()
 })
 
+
+
 const Login = () => {
     const {values, setValue, validate, errors} = useForm(schema)
-    const {verifyUser} = useAPI()
+    const {generalPosts, verifyUser, getGeneralPosts} = useAPI()
+    const {page, setPage} = useNavigate()
+    const {token, setToken} = useToken()
     const submit = async () => {
         const data = await verifyUser(values.username, values.password)
-        console.log(data)
+        if (data.success) {
+            setToken(data.token)
+            setPage('/')
+        }
     }
     return (
         <aside className = 'Login-container'>
-            <h1 className = 'title'>Login</h1>
+            <h1 className = 'title'>Welcome</h1>
             <Input
                 value = {values.username || ''}
                 onChange = {(e) => {setValue('username', e.target.value)}}

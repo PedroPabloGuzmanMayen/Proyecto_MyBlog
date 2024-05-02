@@ -1,5 +1,6 @@
 import React from "react"
 import useNavigate from '../../Hooks/useNavigate'
+import './Nav.css'
 
 
 const Nav = () => {
@@ -7,18 +8,21 @@ const Nav = () => {
 
 
     return (
-        <ul>
-            <li>
-                <a href = '/' onClick = {() => {navigate('/')}}>Home</a>
+        <ul className='Nav'>
+            <li className = 'NavList'>
+                <a href = '/' className = 'NavList' onClick = {() => {navigate('/')}}>Home</a>
             </li>
-            <li>
-                <a href = '#/new-post' onClick = {() => {navigate('/new-post')}}>New Post</a>
+            <li className = 'NavList'>
+                <a href = '#/new-post' className = 'NavList' onClick = {() => {navigate('/new-post')}}>New Post</a>
             </li>
-            <li>
-                <a href = '#/login' onClick = {() => {navigate('/login')}}>Login</a>
+            <li className = 'NavList'>
+                <a href = '#/login' className = 'NavList' onClick = {() => {navigate('/login')}}>Login</a>
             </li>
-            <li>
-                <a href = '#/register' onClick = {() => {navigate('/register')}}>Register</a>
+            <li className = 'NavList'>
+                <a href = '#/register' className = 'NavList' onClick = {() => {navigate('/register')}}>Register</a>
+            </li>
+            <li className = 'NavList'>
+                <a href = '#/logout' className = 'NavList' onClick = {() => {navigate('/logout')}}>Logout</a>
             </li>
 
         </ul>
