@@ -21,7 +21,7 @@
 .NavList {
     display: flex; 
     gap: 10px;
-    font: 25px 'Star Jedi Hollow';
+    font: 25px 'Arial';
     color: #FFE81F;
     flex-wrap: nowrap;
     padding: 10px;

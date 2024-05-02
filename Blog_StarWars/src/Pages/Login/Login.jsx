@@ -19,13 +19,14 @@ const schema = object({
 const Login = () => {
     const {values, setValue, validate, errors} = useForm(schema)
     const {generalPosts, verifyUser, getGeneralPosts} = useAPI()
-    const {page, setPage} = useNavigate()
+    const {page, navigate} = useNavigate()
     const {token, setToken} = useToken()
     const submit = async () => {
         const data = await verifyUser(values.username, values.password)
         if (data.success) {
+            console.log(data)
             setToken(data.token)
-            setPage('/')
+            navigate('/')
         }
     }
     return (

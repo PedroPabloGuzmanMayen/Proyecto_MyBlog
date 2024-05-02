@@ -19,7 +19,7 @@ const useAPI = () =>{
 
     const verifyUser = async (username, password) => {
         const body = { "username": username, "password": password}
-        const response = await fetch(`http://api.web05.lol/22111/login`, {
+        const response = await fetch(`https://api.web05.lol/22111/login`, {
             //mode: 'no-cors',
             method: 'POST',
             body: JSON.stringify(body),
