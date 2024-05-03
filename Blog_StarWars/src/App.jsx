@@ -8,11 +8,11 @@ function App() {
 
 
   return (
-    <NavigationProvider>
     <TokenProvider>
-      <Navigation />
+      <NavigationProvider>
+        <Navigation />
+      </NavigationProvider>
     </TokenProvider>
-    </NavigationProvider>
 
   )
 }

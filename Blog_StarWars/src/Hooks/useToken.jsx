@@ -26,7 +26,7 @@ const TokenProvider = ({ children }) => {
   }, [token])
 
 
-  const isLoggedIn = !!token
+  const isLoggedIn = !token 
 
   const getRawToken = () => {
     return parseJwt(token)

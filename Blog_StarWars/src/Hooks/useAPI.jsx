@@ -47,7 +47,7 @@ const useAPI = () =>{
         return data
     }
 
-    return { generalPosts, setGeneralPosts, userPosts, getUserPosts, verifyUser, addUser, getGeneralPosts}
+    return { generalPosts, userPosts, getUserPosts, verifyUser, addUser, getGeneralPosts}
 
 
 }

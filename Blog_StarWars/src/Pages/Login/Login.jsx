@@ -18,14 +18,15 @@ const schema = object({
 
 const Login = () => {
     const {values, setValue, validate, errors} = useForm(schema)
-    const {generalPosts, verifyUser, getGeneralPosts} = useAPI()
+    const {verifyUser} = useAPI()
     const {page, navigate} = useNavigate()
-    const {token, setToken} = useToken()
+    const {setToken} = useToken()
     const submit = async () => {
         const data = await verifyUser(values.username, values.password)
+        console.log(data.success)
         if (data.success) {
-            console.log(data)
             setToken(data.token)
+            console.log('Token is: ', localStorage.getItem('access_token'))
             navigate('/')
         }
     }
@@ -35,7 +36,6 @@ const Login = () => {
             <Input
                 value = {values.username || ''}
                 onChange = {(e) => {setValue('username', e.target.value)}}
-                //onChange = {(value) => {setValue('username', value)}}
                 text = 'Username'
                 type = 'text'
                 placeholder = 'Your username'/>

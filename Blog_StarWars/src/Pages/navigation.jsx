@@ -6,6 +6,7 @@ import Register from './Register/Register'
 import useToken from '../Hooks/useToken'
 import useNavigate from '../Hooks/useNavigate'
 import Nav from '../Components/Nav/Nav'
+import Logout from './Logout/Logout'
 
 const routes = {
     '/': {
@@ -23,11 +24,16 @@ const routes = {
     '/register':{
         component: Register,
         requiresLogin: false
+    },
+    '/logout':{
+        component: Logout,
+        requiresLogin: true
     }
 }
 
 const Navigation = () => {
     const {page, navigate} = useNavigate()
+    //const {token} = useToken()
     let CurrentPage = routes[page].component
 
     return (
