@@ -2,6 +2,9 @@
     max-width: 800px; /* Adjust max-width as needed */
     margin: 0 auto; /* Center content horizontally */
     padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .Home-title {

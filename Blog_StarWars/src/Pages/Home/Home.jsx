@@ -1,6 +1,7 @@
 import React from 'react'
 import useNavigate from '../../Hooks/useNavigate'
 import PostList from '../../Components/PostList/PostList'
+import './Home.css'
 
 const Home = () => {
     const {page, navigate} = useNavigate()

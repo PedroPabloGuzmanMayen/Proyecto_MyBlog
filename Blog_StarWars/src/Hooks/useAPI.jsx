@@ -50,12 +50,10 @@ const useAPI = () =>{
     }
 
     const addUser = async (username, password) => {
-        const response = await fetch('https://jsonplaceholder.typicode.com/users', {
+        const body = { "username": username, "password": password}
+        const response = await fetch('https://api.web05.lol/22111/register', {
             method: 'POST',
-            body: JSON.stringify({
-                username,
-                password
-            }),
+            body: JSON.stringify(body),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
             },
