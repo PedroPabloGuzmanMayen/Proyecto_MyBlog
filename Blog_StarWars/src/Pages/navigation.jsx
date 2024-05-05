@@ -7,6 +7,7 @@ import useToken from '../Hooks/useToken'
 import useNavigate from '../Hooks/useNavigate'
 import Nav from '../Components/Nav/Nav'
 import Logout from './Logout/Logout'
+import MainTitle from '../Components/MainTitle/MainTitle'
 
 const routes = {
     '/': {
@@ -38,6 +39,7 @@ const Navigation = () => {
 
     return (
         <div>
+            <MainTitle />
             <Nav/>
 
             <CurrentPage />

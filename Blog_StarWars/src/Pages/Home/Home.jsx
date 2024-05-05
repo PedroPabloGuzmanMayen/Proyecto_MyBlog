@@ -1,10 +1,14 @@
 import React from 'react'
 import useNavigate from '../../Hooks/useNavigate'
+import PostList from '../../Components/PostList/PostList'
 
 const Home = () => {
     const {page, navigate} = useNavigate()
     return (
-        <h1>Home</h1>
+        <div className='Home-container'>
+          <PostList />
+        </div>
+
     )
 }
 export default Home

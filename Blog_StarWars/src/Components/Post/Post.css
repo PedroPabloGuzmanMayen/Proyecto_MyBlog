@@ -1,7 +1,19 @@
 .Post {
-    background-color: 'rgb(255, 0, 0)';
-    padding: '20px';
-    margin: '10px';
-    border-Radius: '10px';
-    box-Shadow: '0 0 10px rgba(0, 0, 0, 0.5)';
+    background-color: rgb(255, 0, 0);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    
+}
+
+.Posttitle {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    align-items: center;
+    justify-content: center;
+    color:aqua;
+    flex-direction: column;
 }

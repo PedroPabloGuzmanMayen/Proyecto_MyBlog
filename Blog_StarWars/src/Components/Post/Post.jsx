@@ -1,10 +1,10 @@
 import React from 'react'
-
-const Post = (title, author, content, image, date) => {
+import './Post.css'
+const Post = ({title, author, content, image}) => {
     return (
         <li className='Post'>
-            <h1>{title}</h1>
-            <h2>Created by: {author} at {date}</h2>
+            <h1 className='Posttitle'>{title}</h1>
+            <h2>Created by: {author}</h2>
             <p>{content}</p>
             <img src={image} alt={title} />
         </li>

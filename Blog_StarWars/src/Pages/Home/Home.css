@@ -1,0 +1,11 @@
+.Home-container {
+    max-width: 800px; /* Adjust max-width as needed */
+    margin: 0 auto; /* Center content horizontally */
+    padding: 20px;
+}
+
+.Home-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}

@@ -1,9 +1,11 @@
 import React from 'react'
 import Post from '../Post/Post'
 import { useEffect } from 'react'
+import useAPI from '../../Hooks/useAPI'
+import './PostList.css'
 
 const PostList = () => {
-  const {generalPosts, getGeneralPosts} = usePosts()
+  const {generalPosts, getGeneralPosts} = useAPI()
     useEffect(() => {
         getGeneralPosts()
     }, [])
@@ -17,8 +19,10 @@ const PostList = () => {
     return (
         <ul className='PostList'>
         {generalPosts.map((post) => {
-            return <Post key={post.id} title={post.title} author={post.author} content={post.content} image={post.banner} date={post.created_at} />
+            return <Post key={post.id} title={post.title} author={post.author} content={post.content} image={post.banner}/>
         })}
         </ul>
     )
 }
+
+export default PostList

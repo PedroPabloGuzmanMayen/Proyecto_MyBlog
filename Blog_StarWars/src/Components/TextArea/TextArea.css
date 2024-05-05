@@ -1,0 +1,24 @@
+.TextArea{
+    height: 40px;
+    border: 1px solid #FFE81F;
+    background-color: #000000;
+    color: #FFE81F;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding : 20px 10px;
+    outline: none;
+}
+
+.Text {
+    font-size: 10px;
+    color: #FFE81F;
+    font-family: monospace;
+}
+
+.TextArea-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 5px;
+}
