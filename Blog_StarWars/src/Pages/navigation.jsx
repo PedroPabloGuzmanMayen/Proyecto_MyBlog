@@ -15,10 +15,6 @@ const routes = {
         component: Home,
         requiresLogin: false
     },
-    '/new-post': {
-        component: NewPost,
-        requiresLogin: true
-    },
     '/login':{
         component: Login,
         requiresLogin: false
@@ -34,14 +30,24 @@ const routes = {
     '/userPosts':{
         component: UserPosts,
         requiresLogin: true
-    
+    },
+    '/newPost':{
+        component: NewPost,
+        requiresLogin: true
     }
 }
 
 const Navigation = () => {
-    const {page, navigate} = useNavigate()
-    //const {token} = useToken()
-    let CurrentPage = routes[page].component
+    const { token } = useToken() 
+    const { page, navigate } = useNavigate()
+  
+    let CurrentPage = () => <h1>404</h1>
+  
+    if (routes[page] && routes[page].requiresLogin && !token) {
+      return <div><h1>Unauthorized</h1><a href='/#/login' onClick={() => navigate('/login')}>Please login</a></div>
+    }
+    CurrentPage = routes[page].component
+
 
     return (
         <div>

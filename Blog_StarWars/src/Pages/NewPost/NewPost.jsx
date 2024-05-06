@@ -4,6 +4,7 @@ import useForm from '../../Hooks/useForm'
 import Button from '../../Components/Button/Button'
 import Input from '../../Components/Input/Input'
 import useAPI from '../../Hooks/useAPI'
+import useToken from '../../Hooks/useToken'
 import TextArea from '../../Components/TextArea/TextArea.jsx'
 import { object, string } from 'yup'
 
@@ -15,9 +16,10 @@ const Schema = {
 }
 
 const NewPost = () => {
+    const {getRawToken} = useToken()
     const {newPost} = useAPI()
     const Post = async () =>{
-        await newPost(values.title, values.content, values.image, 'hola')
+        await newPost(values.title, values.content, values.image, getRawToken().username)
     }
     const {page, navigate} = useNavigate()
     const {values, setValue, validate, errors} = useForm(Schema)

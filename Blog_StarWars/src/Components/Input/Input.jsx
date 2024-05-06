@@ -9,16 +9,15 @@ const Input = ({ value, onChange, text, type, placeholder }) => {
         <label className = 'Input-container'>
             <span className = 'text'>{text}</span>
             <input value={value} onChange = {onChange} type = {!eyeClosed && type === 'password' ? 'text' : type} placeholder={placeholder} className = 'Input' />
-            {
-              type === 'password' ? (
-              <div
-                className={`eye ${eyeClosed ? 'closed' : 'open'}`}
-                onClick={() => setEyeClosed((oldEye) => !oldEye)}
-              >
-              👁
-             </div>
-              ) : null 
-            }
+            {type === 'password' ? ( 
+                
+                <div
+                    className={`eye ${eyeClosed ? 'closed' : 'open'}`}
+                    onClick={() => setEyeClosed((oldEye) => !oldEye)}
+                >
+                    👁
+                </div>
+            ): null}
         </label>
     )
 }

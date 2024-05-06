@@ -26,7 +26,10 @@ const Nav = () => {
                     <a href='/' className='NavList' onClick={() => {navigate('/')}}>Home</a>
                 </li>
                 <li className='NavList'>
-                    <a href='#/my-posts' className='NavList' onClick={() => {navigate('/userPosts')}}>My Posts</a>
+                    <a href='#/userPosts' className='NavList' onClick={() => {navigate('/userPosts')}}>My Posts</a>
+                </li>
+                <li className='NavList'>
+                    <a href='#/newPost' className='NavList' onClick={() => {navigate('/newPost')}}>New Post</a>
                 </li>
                 <li className='NavList'>
                     <a href='#/logout' className='NavList' onClick={() => {navigate('/logout')}}>Logout</a>
