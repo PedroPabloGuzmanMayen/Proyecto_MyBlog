@@ -18,6 +18,7 @@ const TokenProvider = ({ children }) => {
   const [ token, setToken ] = useState(
     localStorage.getItem('access_token') || null
   )
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   const createTokenn = (token) => {
     setToken(token)
@@ -27,11 +28,12 @@ const TokenProvider = ({ children }) => {
   useEffect(() => {
     if (token) {
       localStorage.setItem('access_token', token)
+      setIsLoggedIn(true)
     }
   }, [token])
 
 
-  const isLoggedIn = !!token 
+
 
   const getRawToken = () => {
     return parseJwt(token)

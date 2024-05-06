@@ -62,6 +62,18 @@ const useAPI = () =>{
         return data
     }
 
+    const deletePost = async (id) => {
+        const response = await fetch(`https://api.web05.lol/22111/deletePost/${id}`, {
+            method: 'DELETE',
+        })
+        if (response.ok){
+            return true
+        }
+        else{
+            return false
+        }
+    }
+
     return { generalPosts, userPosts, getUserPosts, verifyUser, addUser, getGeneralPosts, newPost}
 
 

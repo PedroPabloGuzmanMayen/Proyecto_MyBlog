@@ -2,8 +2,6 @@ import React from 'react'
 import './Post.css'
 import Button from '../Button/Button'
 const Post = ({title, author, content, image, cond, id}) => {
-    const condition = cond
-    console.log(condition)
     const deletePost = () =>{
         console.log('Delete post with id: ', id)
 
@@ -25,8 +23,10 @@ const Post = ({title, author, content, image, cond, id}) => {
             <p>{content}</p>
             <p>True</p>
             <img className = 'image-container' src={image} alt={title} />
-            <Button text='Delete' onClick={deletePost}/>
-            <Button text='Modify' onClick={goToModify}/>
+            <div className = 'buttons-container'>
+                <Button text='Delete' onClick={deletePost}/>
+                <Button text='Modify' onClick={goToModify}/>
+            </div>
         </li>
     )
 }

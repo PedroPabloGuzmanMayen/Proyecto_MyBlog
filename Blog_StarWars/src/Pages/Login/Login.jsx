@@ -20,15 +20,14 @@ const Login = () => {
     const {values, setValue, validate, errors} = useForm(schema)
     const {verifyUser} = useAPI()
     const {page, navigate} = useNavigate()
-    const {setToken} = useToken()
+    const {setToken, isLoggedIn} = useToken()
     const submit = async () => {
         const data = await verifyUser(values.username, values.password)
         console.log(data.success)
         if (data.success) {
+            console.log('loggedIn1 is:' , isLoggedIn)
             setToken(data.access_token)
             console.log('Token is: ', localStorage.getItem('access_token'))
-            console.log(!data.access_token)
-            console.log(!!data.access_token)
             navigate('/')
         }
     }
