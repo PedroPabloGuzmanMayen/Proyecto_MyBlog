@@ -19,6 +19,11 @@ const TokenProvider = ({ children }) => {
     localStorage.getItem('access_token') || null
   )
 
+  const createTokenn = (token) => {
+    setToken(token)
+    localStorage.setItem('access_token', token)
+  }
+
   useEffect(() => {
     if (token) {
       localStorage.setItem('access_token', token)
@@ -26,14 +31,14 @@ const TokenProvider = ({ children }) => {
   }, [token])
 
 
-  const isLoggedIn = !token 
+  const isLoggedIn = !!token 
 
   const getRawToken = () => {
     return parseJwt(token)
   }
 
   return (
-    <TokenContext.Provider value={{ token, setToken, isLoggedIn, getRawToken}}>
+    <TokenContext.Provider value={{ token, setToken, isLoggedIn, getRawToken, createTokenn}}>
       {children}
     </TokenContext.Provider>
   )

@@ -4,7 +4,7 @@ import './MainTitle.css'
 const MainTitle = () => {
     return (
         <header className = 'Main'>
-            <h1 className='MainTitle'>That 2010's blog</h1>
+            <h1 className='MainTitle'>El garito del Pazaak</h1>
         </header>
         
     )

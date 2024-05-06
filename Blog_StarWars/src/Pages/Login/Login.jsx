@@ -25,8 +25,10 @@ const Login = () => {
         const data = await verifyUser(values.username, values.password)
         console.log(data.success)
         if (data.success) {
-            setToken(data.token)
+            setToken(data.access_token)
             console.log('Token is: ', localStorage.getItem('access_token'))
+            console.log(!data.access_token)
+            console.log(!!data.access_token)
             navigate('/')
         }
     }
