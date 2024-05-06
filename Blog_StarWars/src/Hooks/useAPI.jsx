@@ -74,7 +74,7 @@ const useAPI = () =>{
         }
     }
 
-    return { generalPosts, userPosts, getUserPosts, verifyUser, addUser, getGeneralPosts, newPost}
+    return { generalPosts, userPosts, getUserPosts, verifyUser, addUser, getGeneralPosts, newPost, deletePost}
 
 
 }

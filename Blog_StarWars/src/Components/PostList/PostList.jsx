@@ -19,7 +19,7 @@ const PostList = () => {
     return (
         <ul className='PostList'>
         {generalPosts.map((post) => {
-            return <Post key={post.id} title={post.title} author={post.author} content={post.content} image={post.banner} cond = {true} id = {'hola'}/>
+            return <Post key={post.id} title={post.title} author={post.author} content={post.content} image={post.banner} cond = {true} id = {post.id}/>
         })}
         </ul>
     )

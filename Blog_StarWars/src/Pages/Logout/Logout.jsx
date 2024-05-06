@@ -4,7 +4,7 @@ import useNavigate from '../../Hooks/useNavigate';
 const Logout = () => {
     const { navigate } = useNavigate();
     useEffect(() => {
-        localStorage.removeItem('access_token'); // Remove only the access token
+        localStorage.removeItem('access_token')
         setTimeout(() => {
             navigate('/login');
         }, 3000);
