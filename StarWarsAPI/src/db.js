@@ -104,3 +104,14 @@ export async function register(username, password) {
     const res = await conn.query('INSERT INTO users (username, password) VALUES ($1, $2)', [username, password])
     return res.rows
 }
+
+//Función que obtiene los posts de un usuario dado su username
+export async function getUserPosts(username) {
+  try {
+    const res = await conn.query('SELECT * FROM posts WHERE author = $1', [username])
+    return res.rows
+  } catch (error) {
+    console.error('Error obteniendo posts:', error)
+    throw error
+  }
+}

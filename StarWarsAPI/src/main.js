@@ -3,7 +3,7 @@ import fs from 'fs'
 import cors from 'cors'
 import {generateToken, validateToken} from './jwt.js'
 import {
-  getPosts, newPost, getPostbyID, modifyPostByID, deletePost, login, register
+  getPosts, newPost, getPostbyID, modifyPostByID, deletePost, login, register, getUserPosts
 } from './db.js'
 
 const app = express()
@@ -34,10 +34,10 @@ app.get('/Posts', async (req, res) => {
     res.status(500).send('Ha ocurrido un error, el lado oscuro ha triunfado :( (*suena la marcha imperial*)')
   }
 })
-app.get('/Posts/:id', async (req, res) => {
+app.get('/Posts/:author', async (req, res) => {
   try {
-    const { id } = req.params
-    res.status(200).json(await getPostbyID(id))
+    const { author } = req.params
+    res.status(200).json(await getUserPosts(author))
   } catch (e) {
     res.status(500).send('Ha ocurrido un error, el lado oscuro ha triunfado :( (*suena la marcha imperial*)')
   }
@@ -78,7 +78,7 @@ app.post('/login', async (req, res) => {
   const user = await login(username, password)
   if (user) {
     const token = generateToken(user[0].username)
-    res.status(200).json({ 'success': true, access_token: token, user: username })
+    res.status(200).json({ 'success': true, 'access_token': token, user: username })
   } else {
     res.status(401).json({'success': false})
   }
