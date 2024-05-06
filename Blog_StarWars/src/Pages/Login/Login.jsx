@@ -8,6 +8,7 @@ import useForm from '../../Hooks/useForm'
 import useAPI from '../../Hooks/useAPI'
 import useToken from '../../Hooks/useToken'
 import useNavigate from '../../Hooks/useNavigate'
+import { md5 } from 'js-md5'
 
 const schema = object({
     username: string().required(),
@@ -22,7 +23,7 @@ const Login = () => {
     const {page, navigate} = useNavigate()
     const {setToken, isLoggedIn} = useToken()
     const submit = async () => {
-        const data = await verifyUser(values.username, values.password)
+        const data = await verifyUser(values.username, md5(values.password))
         console.log(data.success)
         if (data.success) {
             console.log('loggedIn1 is:' , isLoggedIn)
