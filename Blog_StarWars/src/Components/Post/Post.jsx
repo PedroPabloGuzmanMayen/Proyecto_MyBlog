@@ -2,17 +2,24 @@ import React from 'react'
 import './Post.css'
 import Button from '../Button/Button'
 import useAPI from '../../Hooks/useAPI'
-const Post = ({title, author, content, image, cond, id}) => {
+import useID from '../../Hooks/useID'
+const Post = ({title, author, content, image, cond, idPost}) => {
+    const {id, setId} = useID()
     const {deletePost} = useAPI()
     const removePost = async () =>{
-        const res = await deletePost(id)
+        const res = await deletePost(idPost)
         if (res){
             alert('Post deleted :)')
         }
 
     }
     const goToModify = () =>{
-        console.log('Go to modify post with id: ', id)
+        console.log(id)
+        console.log(idPost)
+        setId(idPost)
+        
+        
+        
     }
     return !cond ? (
         <li className='Post'>

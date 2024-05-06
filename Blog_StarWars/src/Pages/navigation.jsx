@@ -8,6 +8,7 @@ import useNavigate from '../Hooks/useNavigate'
 import Nav from '../Components/Nav/Nav'
 import Logout from './Logout/Logout'
 import MainTitle from '../Components/MainTitle/MainTitle'
+import UserPosts from './UserPosts/UserPosts'
 
 const routes = {
     '/': {
@@ -29,6 +30,11 @@ const routes = {
     '/logout':{
         component: Logout,
         requiresLogin: true
+    },
+    '/userPosts':{
+        component: UserPosts,
+        requiresLogin: true
+    
     }
 }
 

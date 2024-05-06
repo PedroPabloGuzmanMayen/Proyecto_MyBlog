@@ -3,20 +3,14 @@ import { useState } from 'react'
 const useAPI = () =>{
 
     const [generalPosts, setGeneralPosts] = useState([])
-    const [userPosts, setUserPosts] = useState([])
+  
 
-    const getUserPosts = async (userId) => {
-        const response = await fetch(`https://api.web05.lol/Posts/${userId}`)
-        const data = await response.json()
-        setUserPosts(data)
-    }
 
-    const getGeneralPosts = async () => {
-        const response = await fetch('https://api.web05.lol/22111/Posts')
+    const getGeneralPosts = async (url) => {
+        const response = await fetch(url)
         const data = await response.json()
         setGeneralPosts(data)
     }
-    //newPost(title, content, image, author)
     const newPost = async (title, content, banner, author) => {
         const body = {"title": title, "content": content, "image": banner, "author": author}
         const response = await fetch('https://api.web05.lol/22111/newPost', {
@@ -74,7 +68,7 @@ const useAPI = () =>{
         }
     }
 
-    return { generalPosts, userPosts, getUserPosts, verifyUser, addUser, getGeneralPosts, newPost, deletePost}
+    return { generalPosts, verifyUser, addUser, getGeneralPosts, newPost, deletePost}
 
 
 }

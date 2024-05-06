@@ -26,7 +26,7 @@ const Nav = () => {
                     <a href='/' className='NavList' onClick={() => {navigate('/')}}>Home</a>
                 </li>
                 <li className='NavList'>
-                    <a href='#/my-posts' className='NavList' onClick={() => {navigate('/my-posts')}}>My Posts</a>
+                    <a href='#/my-posts' className='NavList' onClick={() => {navigate('/userPosts')}}>My Posts</a>
                 </li>
                 <li className='NavList'>
                     <a href='#/logout' className='NavList' onClick={() => {navigate('/logout')}}>Logout</a>

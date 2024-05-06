@@ -10,7 +10,7 @@ const Home = () => {
     const {page, navigate} = useNavigate()
     return (
         <div className='Home-container'>
-          <PostList />
+          <PostList url = 'https://api.web05.lol/22111/Posts' condition = {false} />
         </div>
 
     )
