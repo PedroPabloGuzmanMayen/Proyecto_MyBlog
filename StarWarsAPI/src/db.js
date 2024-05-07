@@ -14,32 +14,32 @@ export async function getPosts() {
 export async function modifyPostByID(id, title, content, image) {
   // Modificar imagen y contenido pero no el título
   try {
-    if (title === '' && content !== '' && image !== '') {
+    if (title === null && content !== null && image !== null) {
       const res = await conn.query('UPDATE posts SET content = $1, banner = $2 WHERE id = $3', [content, image, id])
       return res.rows
     }
     // Modificar el título y el contenido pero no la imagen
-    else if (content !== '' && title !== '' && image === '') {
+    else if (content !== null && title !== null && image === null) {
       const res = await conn.query('UPDATE posts SET content = $1, title = $2 WHERE id = $3', [title, content, id])
       return res.rows
     }
     // Modificar el título y la imagen pero no el contenido
-    else if (content === '' && image !== '' && title !== '') {
+    else if (content === null && image !== null && title !== null) {
       const res = await conn.query('UPDATE posts SET title = $1, banner = $2 WHERE id = $3', [title, image, id])
       return res.rows
     }
     // Modificar solo el contenido
-    else if (content !== '' && image === '' && title === '') {
+    else if (content !== null && image === null && title === null) {
       const res = await conn.query('UPDATE posts SET content = $1 WHERE id = $2', [content, id])
       return res.rows
     }
     // Modificar solo el título
-    else if (content === '' && image === '' && title !== '') {
+    else if (content === null && image === null && title !== null) {
       const res = await conn.query('UPDATE posts SET title = $1 WHERE id = $2', [title, id])
       return res.rows
     }
     // Modificar solo la imagen
-    else if (content === '' && image !== '' && title === '') {
+    else if (content === null && image !== null && title === null) {
       const res = await conn.query('UPDATE posts SET banner = $1 WHERE id = $2', [image, id])
       return res.rows
     }
