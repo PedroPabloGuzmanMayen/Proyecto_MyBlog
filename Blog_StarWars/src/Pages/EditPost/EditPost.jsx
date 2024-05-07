@@ -1,0 +1,69 @@
+import React from 'react'
+import useNavigate from '../../Hooks/useNavigate'
+import useForm from '../../Hooks/useForm'
+import Button from '../../Components/Button/Button'
+import Input from '../../Components/Input/Input'
+import useAPI from '../../Hooks/useAPI'
+import useToken from '../../Hooks/useToken'
+import TextArea from '../../Components/TextArea/TextArea.jsx'
+import useID from '../../Hooks/useID'
+import { object, string } from 'yup'
+
+
+const Schema = {
+    title: string(),
+    content: string(),
+    image: string()
+}
+
+const EditPost = () => {
+    const {id} = useID()
+    const {getRawToken} = useToken()
+    
+    const {modifyPost} = useAPI()
+    const Modify = async () =>{
+        const content = values.content || ''
+        const title = values.title || ''
+        const image = values.image || ''
+        await modifyPost(id, title, content, image)
+        
+    }
+    /*
+    app.put('/modifyPost/:id', async (req, res) => {
+  try {
+    const { id } = req.params
+    const { title, image, content } = req.body
+    */
+    const {page, navigate} = useNavigate()
+    const {values, setValue, validate, errors} = useForm(Schema)
+    return (
+        <aside className='NewPost-Container'>
+            <h1>Edita tu post</h1>
+            <Input
+                value = {values.title || ''}
+                onChange = {(e) => {setValue('title', e.target.value)}}
+                text = 'Title'
+                type = 'text'
+                placeholder = 'post title'/>
+            <Input
+                value = {values.image || ''}
+                onChange = {(e) => {setValue('image', e.target.value)}}
+                text = 'Image'
+                type = 'text'
+                placeholder = 'Image for your post'/>
+            <TextArea
+                value = {values.content || ''}
+                onChange = {(e) => {setValue('content', e.target.value)}}
+                text = 'Content'
+                placeholder = 'Post content'/>
+            <Button 
+                text = 'Post'
+                onClick = {Modify}
+            />
+        </aside>
+    )
+}
+
+export default EditPost
+
+//newPost(title, content, image, author)

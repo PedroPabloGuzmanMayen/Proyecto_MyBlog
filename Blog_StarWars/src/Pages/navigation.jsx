@@ -9,6 +9,7 @@ import Nav from '../Components/Nav/Nav'
 import Logout from './Logout/Logout'
 import MainTitle from '../Components/MainTitle/MainTitle'
 import UserPosts from './UserPosts/UserPosts'
+import EditPost from './EditPost/EditPost'
 
 const routes = {
     '/': {
@@ -34,6 +35,11 @@ const routes = {
     '/newPost':{
         component: NewPost,
         requiresLogin: true
+    },
+    '/editPost': {
+        component: EditPost,
+        requiresLogin: true
+    
     }
 }
 

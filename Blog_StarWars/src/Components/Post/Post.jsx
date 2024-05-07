@@ -3,9 +3,11 @@ import './Post.css'
 import Button from '../Button/Button'
 import useAPI from '../../Hooks/useAPI'
 import useID from '../../Hooks/useID'
+import useNavigate from '../../Hooks/useNavigate'
 const Post = ({title, author, content, image, cond, idPost}) => {
     const {id, setId} = useID()
     const {deletePost} = useAPI()
+    const {navigate} = useNavigate()
     const removePost = async () =>{
         const res = await deletePost(idPost)
         if (res){
@@ -17,9 +19,7 @@ const Post = ({title, author, content, image, cond, idPost}) => {
         console.log(id)
         console.log(idPost)
         setId(idPost)
-        
-        
-        
+        navigate('/editPost')    
     }
     return !cond ? (
         <li className='Post'>

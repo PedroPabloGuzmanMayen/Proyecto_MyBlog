@@ -1,8 +1,10 @@
-import globals from "globals";
-import pluginReactConfig from "eslint-plugin-react/configs/recommended.js";
+module.exports = {
+  globals: {
+    browser: true
+  },
+  extends: [
+    'plugin:@eslint/recommended',
+    'plugin:react/recommended'
+  ]
+};
 
-
-export default [
-  {languageOptions: { globals: globals.browser }},
-  pluginReactConfig,
-];
