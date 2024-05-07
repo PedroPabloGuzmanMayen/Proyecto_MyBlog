@@ -19,34 +19,35 @@ export async function modifyPostByID(id, title, content, image) {
       return res.rows
     }
     // Modificar el título y el contenido pero no la imagen
-    if (content !== '' && title !== '' && image === '') {
+    else if (content !== '' && title !== '' && image === '') {
       const res = await conn.query('UPDATE posts SET content = $1, title = $2 WHERE id = $3', [title, content, id])
       return res.rows
     }
     // Modificar el título y la imagen pero no el contenido
-    if (content === '' && image !== '' && title !== '') {
+    else if (content === '' && image !== '' && title !== '') {
       const res = await conn.query('UPDATE posts SET title = $1, banner = $2 WHERE id = $3', [title, image, id])
       return res.rows
     }
     // Modificar solo el contenido
-    if (content !== '' && image === '' && title === '') {
+    else if (content !== '' && image === '' && title === '') {
       const res = await conn.query('UPDATE posts SET content = $1 WHERE id = $2', [content, id])
       return res.rows
     }
     // Modificar solo el título
-    if (content === '' && image === '' && title !== '') {
+    else if (content === '' && image === '' && title !== '') {
       const res = await conn.query('UPDATE posts SET title = $1 WHERE id = $2', [title, id])
       return res.rows
     }
     // Modificar solo la imagen
-    if (content === '' && image !== '' && title === '') {
+    else if (content === '' && image !== '' && title === '') {
       const res = await conn.query('UPDATE posts SET banner = $1 WHERE id = $2', [image, id])
       return res.rows
     }
     // Modificar todo el post
-
-    const res = await conn.query('UPDATE posts SET title = $1, content = $2, banner = $3 WHERE id = $4', [title, content, image, id])
-    return res
+    else {
+      const res = await conn.query('UPDATE posts SET title = $1, content = $2, banner = $3 WHERE id = $4', [title, content, image, id])
+      return res.rows
+    }
   } catch (error) {
     console.error('Error modificando post post:', error)
     throw error
