@@ -1,5 +1,5 @@
 .TextArea{
-    height: 40px;
+    height: 200px;
     border: 1px solid #FFE81F;
     background-color: #000000;
     color: #FFE81F;
@@ -7,6 +7,7 @@
     box-sizing: border-box;
     padding : 20px 10px;
     outline: none;
+    width: 500px;
 }
 
 .Text {

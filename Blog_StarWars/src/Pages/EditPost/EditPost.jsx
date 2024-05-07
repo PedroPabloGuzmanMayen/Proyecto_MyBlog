@@ -7,6 +7,8 @@ import useAPI from '../../Hooks/useAPI'
 import useToken from '../../Hooks/useToken'
 import TextArea from '../../Components/TextArea/TextArea.jsx'
 import useID from '../../Hooks/useID'
+import { useState } from 'react'
+import './EditPost.css'
 import { object, string } from 'yup'
 
 
@@ -19,13 +21,22 @@ const Schema = {
 const EditPost = () => {
     const {id} = useID()
     const {getRawToken} = useToken()
+    const [error, setError] = useState('')
     
     const {modifyPost} = useAPI()
     const Modify = async () =>{
         const content = values.content || ''
         const title = values.title || ''
         const image = values.image || ''
-        await modifyPost(id, title, content, image)
+        if ((content !== '' && content.length > 240)) {
+            setError('El contenido debe ser de menos de 240 caracteres')
+        }
+        else if (title !== '' && title.length > 50) {
+            setError('El título debe ser de menos de 50 caracteres')
+        }
+        else {
+            const res = await modifyPost(id, title, content, image)
+        }
         
     }
     /*
@@ -37,8 +48,8 @@ const EditPost = () => {
     const {page, navigate} = useNavigate()
     const {values, setValue, validate, errors} = useForm(Schema)
     return (
-        <aside className='NewPost-Container'>
-            <h1>Edita tu post</h1>
+        <aside className='Container'>
+            <h1 className = 'title'>Edita tu post</h1>
             <Input
                 value = {values.title || ''}
                 onChange = {(e) => {setValue('title', e.target.value)}}
@@ -60,6 +71,9 @@ const EditPost = () => {
                 text = 'Post'
                 onClick = {Modify}
             />
+            <h1 className = 'error'>
+                {error}
+            </h1>
         </aside>
     )
 }

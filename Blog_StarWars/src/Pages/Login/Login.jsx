@@ -9,6 +9,7 @@ import useAPI from '../../Hooks/useAPI'
 import useToken from '../../Hooks/useToken'
 import useNavigate from '../../Hooks/useNavigate'
 import { md5 } from 'js-md5'
+import { useState } from 'react'
 
 const schema = object({
     username: string().required(),
@@ -22,6 +23,7 @@ const Login = () => {
     const {verifyUser} = useAPI()
     const {page, navigate} = useNavigate()
     const {setToken, isLoggedIn} = useToken()
+    const [error_message, setError] = useState('')
     const submit = async () => {
         const data = await verifyUser(values.username, md5(values.password))
         console.log(data.success)
@@ -30,6 +32,9 @@ const Login = () => {
             setToken(data.access_token)
             console.log('Token is: ', localStorage.getItem('access_token'))
             navigate('/')
+        }
+        else {
+            setError('Credenciales incorrectas')
         }
     }
     return (
@@ -51,6 +56,9 @@ const Login = () => {
             <Button
                 text = 'Login'
                 onClick = {submit}/>
+            <h1 className = 'error'>
+                {error_message}
+            </h1>
         </aside>
     )
 }
