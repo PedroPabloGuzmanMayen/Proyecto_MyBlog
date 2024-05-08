@@ -31,8 +31,8 @@ const Post = ({title, author, content, image, cond, idPost}) => {
     ) : (
         <li className='Post'>
             <h1 className='Posttitle'>{title}</h1>
-            <h2>Created by: {author}</h2>
-            <p>{content}</p>
+            <h2 className = 'content'>Created by: {author}</h2>
+            <p className = 'content'>{content}</p>
             <img className = 'image-container' src={image} alt={title} />
             <div className = 'buttons-container'>
                 <Button text='Delete' onClick={removePost}/>

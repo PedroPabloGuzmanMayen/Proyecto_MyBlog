@@ -1,5 +1,5 @@
 .Post {
-    background-color: rgb(255, 0, 0);
+    background-color: #87CEEB;
     padding: 20px;
     margin: 5px;
     border-radius: 10px;
@@ -16,8 +16,8 @@
     font-size: 1.5em;
     font-weight: bold;
     margin-bottom: 0.5em;
-    color:aqua;
-    flex-direction: column;
+    color: #000000;
+
 }
 
 .image-container {
@@ -28,6 +28,11 @@
     max-width: 200px;
     max-height: 300px;
 }
+
+.content {
+    color: #000000;
+}
+
 
 .buttons-container {
     display: inline-flex;

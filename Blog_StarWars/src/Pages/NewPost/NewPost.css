@@ -3,15 +3,15 @@
     src: url('../../assets/Starjedi.ttf') format('truetype');
 }
 
-.Container {
+.NewPost-Container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 10px;
+    gap: 10px;
     border-radius: 10px;
     border-color: #FFE81F;
-    gap: 10px;
-    padding: 10px;
 }
 
 .title{

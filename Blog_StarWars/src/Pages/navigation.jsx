@@ -10,6 +10,7 @@ import Logout from './Logout/Logout'
 import MainTitle from '../Components/MainTitle/MainTitle'
 import UserPosts from './UserPosts/UserPosts'
 import EditPost from './EditPost/EditPost'
+import LeftImages from '../Components/LeftImages/LeftImages'
 
 const routes = {
     '/': {
@@ -59,6 +60,9 @@ const Navigation = () => {
         <div>
             <MainTitle />
             <Nav/>
+            <LeftImages/>
+
+
 
             <CurrentPage />
         </div>

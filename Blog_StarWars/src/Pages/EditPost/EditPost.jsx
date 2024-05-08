@@ -55,7 +55,7 @@ const EditPost = () => {
                 onChange = {(e) => {setValue('title', e.target.value)}}
                 text = 'Title'
                 type = 'text'
-                placeholder = 'post title'/>
+                placeholder = 'Post title'/>
             <Input
                 value = {values.image || ''}
                 onChange = {(e) => {setValue('image', e.target.value)}}
