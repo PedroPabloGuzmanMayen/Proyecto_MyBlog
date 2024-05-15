@@ -3,13 +3,19 @@ import { useState } from 'react'
 const useAPI = () =>{
 
     const [generalPosts, setGeneralPosts] = useState([])
-  
+    const [isLoading, setIsLoading] = useState(true)
 
 
     const getGeneralPosts = async (url) => {
-        const response = await fetch(url)
-        const data = await response.json()
-        setGeneralPosts(data)
+        try {
+            setIsLoading(true)
+            const response = await fetch(url)
+            const data = await response.json()
+            setGeneralPosts(data)
+            setIsLoading(false)
+        } catch (error) {
+            console.error('Error fetching data:', error)
+        }
     }
     const newPost = async (title, content, banner, author) => {
         const body = {"title": title, "content": content, "image": banner, "author": author}
@@ -79,7 +85,7 @@ const useAPI = () =>{
         })
     }
 
-    return { generalPosts, verifyUser, addUser, getGeneralPosts, newPost, deletePost, modifyPost}
+    return { generalPosts, verifyUser, addUser, getGeneralPosts, newPost, deletePost, modifyPost, isLoading}
 
 
 }

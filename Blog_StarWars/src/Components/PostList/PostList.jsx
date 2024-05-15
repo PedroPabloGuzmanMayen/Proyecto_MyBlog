@@ -10,12 +10,6 @@ const PostList = ({url, condition}) => {
         getGeneralPosts(url)
     }, [])
 
-  if (generalPosts.length === 0) {
-    return(
-        <h1>Loading...</h1>
-    )
-  }
-
     return (
         <ul className='PostList'>
         {generalPosts.map((post) => {

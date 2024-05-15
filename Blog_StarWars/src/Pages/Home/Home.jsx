@@ -1,8 +1,11 @@
-import React from 'react'
+import React, {Suspense} from 'react'
 import useNavigate from '../../Hooks/useNavigate'
+import useAPI from '../../Hooks/useAPI'
 import useToken from '../../Hooks/useToken'
-import PostList from '../../Components/PostList/PostList'
+import Loading from '../../Components/Loading/Loading'
 import './Home.css'
+
+const LazyPostList = React.lazy(() => import('../../Components/PostList/PostList'))
 
 const Home = () => {
   const {isLoggedIn} = useToken()
@@ -10,7 +13,11 @@ const Home = () => {
     const {page, navigate} = useNavigate()
     return (
         <div className='Home-container'>
-          <PostList url = 'https://api.web05.lol/22111/Posts' condition = {false} />
+          <Suspense fallback = {<Loading/>}>
+
+            <LazyPostList url='https://api.web05.lol/22111/Posts' condition={false} />
+
+          </Suspense>
         </div>
 
     )

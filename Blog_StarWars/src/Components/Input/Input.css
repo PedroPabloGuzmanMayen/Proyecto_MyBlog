@@ -23,18 +23,3 @@
     gap: 5px;
 }
 
-.eye {
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
-    cursor: pointer;
-    user-select: none;
-  }
-  
-  .eye.closed {
-    opacity: 0.4;
-  }
-  
-  .eye.open {
-    opacity: 1;
-  }
