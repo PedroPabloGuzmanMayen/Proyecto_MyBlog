@@ -1,10 +1,10 @@
 import { createContext, useContext, useState, useEffect } from 'react'
 
-const NavigationContext = createContext({ page: '/', navigate: () => {} })
+const NavigationContext = createContext({ page: '/home', navigate: () => {} })
 
 const NavigationProvider = ({ children }) => {
   const path = window.location.hash.substring(1)
-  const [page, setPage] = useState(path || '/')
+  const [page, setPage] = useState(path || '/home')
 
   useEffect(() => {
     if (path) {

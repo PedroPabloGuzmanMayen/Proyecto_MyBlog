@@ -31,7 +31,7 @@ const Login = () => {
             console.log('loggedIn1 is:' , isLoggedIn)
             setToken(data.access_token)
             console.log('Token is: ', localStorage.getItem('access_token'))
-            navigate('/')
+            navigate('/home')
         }
         else {
             setError('Credenciales incorrectas')

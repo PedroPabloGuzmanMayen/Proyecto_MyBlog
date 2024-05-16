@@ -34,7 +34,7 @@ const Register = () => {
             if (data.success){
     
                 console.log('Usuario registrado')
-                navigate('/login')
+                navigate('/loggin')
             }
             else {
                 setError('Usuario ya registrado')
@@ -44,7 +44,7 @@ const Register = () => {
     }
     return (
         <aside className = 'Register-container'>
-        <h1 className = 'title'>Unete al lado oscuro :D</h1>
+        <h1 className = 'title'>Knete al lado oscuro :D</h1>
         <Input
             value = {values.username || ''}
             onChange = {(e) => {setValue('username', e.target.value)}}

@@ -10,7 +10,7 @@ const Logout = () => {
         setToken(null)
 
         setTimeout(() => {
-            navigate('/login');
+            navigate('/loggin');
         }, 3000);
     }, []);
     return (

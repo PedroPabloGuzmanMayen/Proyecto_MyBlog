@@ -11,10 +11,10 @@ const Nav = () => {
         token === null ? (
             <ul className='Nav'>
                 <li className='NavList'>
-                    <a href='/' className='NavList' onClick={() => {navigate('/')}}>Home</a>
+                    <a href='#/home' className='NavList' onClick={() => {navigate('/home')}}>Home</a>
                 </li>
                 <li className='NavList'>
-                    <a href='#/login' className='NavList' onClick={() => {navigate('/login')}}>Login</a>
+                    <a href='#/loggin' className='NavList' onClick={() => {navigate('/loggin')}}>Login</a>
                 </li>
                 <li className='NavList'>
                     <a href='#/register' className='NavList' onClick={() => {navigate('/register')}}>Register</a>
@@ -23,7 +23,7 @@ const Nav = () => {
         ) : (
             <ul className='Nav'>
                 <li className='NavList'>
-                    <a href='/' className='NavList' onClick={() => {navigate('/')}}>Home</a>
+                    <a href='#/home' className='NavList' onClick={() => {navigate('/home')}}>Home</a>
                 </li>
                 <li className='NavList'>
                     <a href='#/userPosts' className='NavList' onClick={() => {navigate('/userPosts')}}>My Posts</a>

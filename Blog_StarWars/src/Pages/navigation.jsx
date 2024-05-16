@@ -13,11 +13,11 @@ import EditPost from './EditPost/EditPost'
 
 
 const routes = {
-    '/': {
+    '/home': {
         component: Home,
         requiresLogin: false
     },
-    '/login':{
+    '/loggin':{
         component: Login,
         requiresLogin: false
     },
@@ -51,7 +51,7 @@ const Navigation = () => {
     let CurrentPage = () => <h1>404</h1>
   
     if (routes[page] && routes[page].requiresLogin && !token) {
-      return <div><h1>Unauthorized</h1><a href='/#/login' onClick={() => navigate('/login')}>Please login</a></div>
+      return <div><h1>No tienes acceso</h1><a href='/#/loggin' onClick={() => navigate('/loggin')}>Please login</a></div>
     }
     CurrentPage = routes[page].component
 
