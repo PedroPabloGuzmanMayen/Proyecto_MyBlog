@@ -27,7 +27,7 @@ const routes = {
     },
     '/logout':{
         component: Logout,
-        requiresLogin: true
+        requiresLogin: false
     },
     '/userPosts':{
         component: UserPosts,
