@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-
+//Se usa un hook para formularios (10 puntos)
 const useForm = (schema_, initialValues = {}) => {
   const [ schema] = useState(schema_)
   const [ values, setValues ] = useState(initialValues)

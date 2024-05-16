@@ -11,7 +11,7 @@ import MainTitle from '../Components/MainTitle/MainTitle'
 import UserPosts from './UserPosts/UserPosts'
 import EditPost from './EditPost/EditPost'
 
-
+//(10 puntos) High order component para las rutas
 const routes = {
     '/home': {
         component: Home,

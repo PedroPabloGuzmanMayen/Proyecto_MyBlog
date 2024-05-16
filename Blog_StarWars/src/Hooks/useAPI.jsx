@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+//Se usa un hook para las llamadas a la API (10 puntos)
 const useAPI = () =>{
 
     const [generalPosts, setGeneralPosts] = useState([])

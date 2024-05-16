@@ -5,6 +5,7 @@ import useToken from '../../Hooks/useToken'
 import Loading from '../../Components/Loading/Loading'
 import './Home.css'
 
+// (20 pts, se usa react suspense)
 const LazyPostList = React.lazy(() => import('../../Components/PostList/PostList'))
 
 const Home = () => {

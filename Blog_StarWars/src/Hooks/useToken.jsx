@@ -22,7 +22,7 @@ const TokenProvider = ({ children }) => {
 
   const createTokenn = (token) => {
     setToken(token)
-    localStorage.setItem('access_token', token)
+    localStorage.setItem('access_token', token) //Se guarda el token en localstorage para dejar la sesión activa (10 puntos)
   }
 
   useEffect(() => {
