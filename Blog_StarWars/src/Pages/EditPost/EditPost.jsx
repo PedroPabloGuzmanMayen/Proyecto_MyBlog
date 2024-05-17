@@ -36,6 +36,7 @@ const EditPost = () => {
         }
         else {
             const res = await modifyPost(id, title, content, image)
+            alert('Posted :)')
         }
         
     }
